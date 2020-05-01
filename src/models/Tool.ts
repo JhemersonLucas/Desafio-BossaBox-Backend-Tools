@@ -4,14 +4,10 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToOne,
-  JoinColumn,
 } from 'typeorm';
 
-import Category from './Category';
-
-@Entity('transactions')
-class Transaction {
+@Entity('tools')
+class Tool {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -19,17 +15,13 @@ class Transaction {
   title: string;
 
   @Column()
-  type: 'income' | 'outcome';
+  link: string;
 
   @Column()
-  value: number;
+  description: string;
 
-  @Column()
-  category_id: string;
-
-  @ManyToOne(() => Category)
-  @JoinColumn({ name: 'category_id' })
-  category: Category;
+  @Column('text', { array: true })
+  tags: string[] = [];
 
   @CreateDateColumn()
   created_at: Date;
@@ -38,4 +30,4 @@ class Transaction {
   updated_at: Date;
 }
 
-export default Transaction;
+export default Tool;
