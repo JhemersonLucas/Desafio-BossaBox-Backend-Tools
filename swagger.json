@@ -1,0 +1,50 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+      "version": "1.0.0",
+      "title": "BossaBox",
+      "description": "Minhas Gerramentas",
+      "license": {
+          "name": "MIT",
+          "url": "https://opensource.org/licenses/MIT"
+      }
+  },
+  "host":"http://localhost:3003",
+  "basePath": "/",
+  "paths": {
+    "/tools": {
+      "get": {
+        "summary": "listar Ferramentas",
+        "description": "Traz uma array com todas as ferramentas cadastradas",
+        "responses": {
+          "200":{
+            "description":"{}"
+          }
+        }
+      },
+      "post": {
+        "summary": "Adicionar uma ferramenta",
+        "description": "Insere no banco de dados uma nova ferramenta",
+        "parameters":{
+          "title":"string"
+        },
+        "responses": {
+          "201":{
+            "description":"{tool}"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remover uma ferramenta",
+        "description": "Traz uma array com todas as ferramentas cadastradas",
+        "responses": {
+          "204":{
+            "description":"no response"
+            }
+          }
+        }
+      }
+    }
+
+
+}
