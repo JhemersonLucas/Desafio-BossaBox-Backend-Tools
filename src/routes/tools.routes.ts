@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { getRepository } from 'typeorm';
+import { getRepository, In } from 'typeorm';
 
 import Tool from '../models/Tool';
 
@@ -10,8 +10,15 @@ import DeleteToolService from '../services/DeleteToolService';
 const toolsRouter = Router();
 
 toolsRouter.get('/', async (request, response) => {
+  const { tag } = request.query;
+  console.log(tag);
   const toolsRepository = getRepository(Tool);
   const tools = await toolsRepository.find();
+  // filtrando tag
+  if (tag) {
+    const results = tools.filter(tool => tool.tags.indexOf(tag) > -1);
+    response.json(results);
+  }
   return response.json(tools);
 });
 

@@ -32,7 +32,29 @@
           "201":{
             "description":"{tool}"
           }
-        }
+        },
+        "parameters": [{
+          "name": "title",
+          "in": "formData",
+          "required": true,
+          "type": "string"
+          },{
+          "name": "link",
+          "in": "formData",
+          "required": true,
+          "type": "string"
+          },{
+          "name": "description",
+          "in": "formData",
+          "required": true,
+          "type": "string"
+          },{
+          "name": "tags",
+          "in": "formData",
+          "required": true,
+          "type": "string"
+          }
+        ]
       },
       "delete": {
         "summary": "Remover uma ferramenta",
@@ -41,10 +63,15 @@
           "204":{
             "description":"no response"
             }
+          },
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
           }
-        }
+        ]
       }
     }
-
-
+  }
 }
