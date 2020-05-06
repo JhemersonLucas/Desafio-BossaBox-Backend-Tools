@@ -36,5 +36,11 @@ Rode as migrations para que as tabelas sejam criadas automaticamente
 
 Agora roder o comando ``` yarn dev:server ``` para iniciar a api 
 
+## Rotas
+
+Para visualizar as rodas acesse
+``` http://localhost:3003/swagger ```
+
+
 **;)**
 
